@@ -9,16 +9,15 @@
     </head>
     <body>
         <section id="containter">
-            
+
             <header>
-
-
+                <section class="game-heading">
+                    <h1 class="heading-name">Tic Tac Toe</h1>
+                </section>
             </header>
-
-            <div class="game-heading">
-                <h1>Tic Tac Toe</h1>
-            </div>
             
+            <button id="app-changer-button">Open Calculator</button>
+
             <section id="board">
                 <div id="board-tiles">
                     <div class="tile" id="0-0"></div>
@@ -33,20 +32,45 @@
                 </div>
             </section>
 
-            <div class="overlay" id="won">
+            <section id="calculator-app">
+                <input type="text" class="calculator-input" onkeydown="return false"/>
+                <div id="calculator-buttons">
+                    <div class="calculator-button">1</div>
+                    <div class="calculator-button">2</div>
+                    <div class="calculator-button">3</div>
+                    <div class="calculator-button">+</div>
+                    <div class="calculator-button">4</div>
+                    <div class="calculator-button">5</div>
+                    <div class="calculator-button">6</div>
+                    <div class="calculator-button">-</div>
+                    <div class="calculator-button">7</div>
+                    <div class="calculator-button">8</div>
+                    <div class="calculator-button">9</div>
+                    <div class="calculator-button">/</div>
+                    <div class="calculator-button">0</div>
+                    <div class="calculator-button">*</div>
+                    <div class="calculator-button">=</div>
+                    <div class="calculator-button">C</div>
+                </div>
+            </section>
+
+            <section class="overlay" id="won">
                 <button class="close-won">&times;</button>
                 <div class="overlay-content">
-                    <p>Player X Won the Game</p>
+                    <p>Congratulation &#127881;</p>
+                    <p><span id="winning-player"></span> Won the Game</p>
                     <Button id="playAgain">Play Again</Button>
                 </div>
-            </div>
+            </section>
             
             <footer>
-
-
+                <p>© Copyright by Himanshu Rawat</p>
             </footer>
+
         </section>
     
-    <script src="./script.js" ></script>
+    
+    <script src="./confetti.js" ></script>
+    <script src="./script.js" ></script>   
     </body>
 </html>

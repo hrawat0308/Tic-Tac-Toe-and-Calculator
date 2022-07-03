@@ -1,19 +1,20 @@
 body{
     margin: 0;
-    background-color: #f3f3f3;
+    background-color: #F3F5D5;
     font-family: 'Poppins', sans-serif;
-    color: #444;
+    color: black;
     text-align: center;
 }
 
 #board{
+    margin-top: 30px !important;
     width: 500px;
     height: 500px;
-    background-color: yellow;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #937DC2;
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 
@@ -22,21 +23,55 @@ body{
     height: 450px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 4px;
+    gap: 10px;
+    margin: auto;
+    margin-top: 20px !important;
 }
+
 
 .tile{
     display: flex;
-    height: 147px;
-    width: 147px;
-    background-color: red;
+    height: 145px;
+    width: 145px;
+    background-color: #DA1212;
     justify-content: center;
     align-items: center;
     font-size: 5rem;
     font-weight: bolder;
-    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
 }
 
+header{
+    background-color: #66BFBF;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#app-changer-button{
+    margin-top: 30px;
+    margin-left: 10px;
+    height: 45px;
+    width: 25%;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    background-color: #EAF6F6;
+}
+
+.heading-name{
+    color: #EAF6F6;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .overlay {
     height: 100%;
@@ -79,6 +114,31 @@ body{
     border: none;
   }
 
+  #playAgain{
+    border: none;
+    height: 4rem;
+    width: 10rem;
+    font-size: 1rem;
+    border-radius: 2px;
+    font-weight: bolder;
+  }
+
+  
+
+  footer{
+    margin-top: 40px;
+    background-color: #37383d;
+    height: 60px;
+    color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer > p{
+    font-size: 1.3rem;
+}
+
   @media screen and (max-height: 450px) {
     .overlay a {font-size: 20px}
     .overlay .close-won {
@@ -87,4 +147,52 @@ body{
     right: 35px;
     }
   }
+
+
+
+#calculator-app{
+  display: none;
+  margin-top: 30px !important;
+  width: 500px;
+  height: 520px;
+  background-color: yellow;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.calculator-input{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 40px;
+  margin-top: 20px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+#calculator-buttons{
+  margin-top: 20px;
+  width: 450px;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 5px;
+  
+}
+
+.calculator-button{
+    display: flex;
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    font-weight: bolder;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
 

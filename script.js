@@ -3,15 +3,37 @@
 const tiles = document.querySelectorAll('.tile');
 const HideWon = document.querySelector(".close-won");
 const playAgain = document.getElementById('playAgain');
+const winningPlayer = document.getElementById("winning-player");
+const appChangerButton = document.getElementById("app-changer-button");
+const TicTacApp = document.getElementById("board");
+const calculatorApp = document.getElementById("calculator-app");
+const pageHeading = document.querySelector(".heading-name");
+const calculatorButtons = document.querySelectorAll(".calculator-button");
+const calculatorInput = document.querySelector(".calculator-input");
 
 let player1 = "O";
 let player2 = "X";
-
 let curPlayer = player1;
 let gameOver = false;
-
+let calculatorIsOpen = false;
 let board = [['', '', ''], ['', '', ''], ['', '', '']];
 
+appChangerButton.addEventListener('click', function(){
+    calculatorIsOpen = !calculatorIsOpen;
+    
+    if(calculatorIsOpen === true){
+        TicTacApp.style.display = "none";
+        calculatorApp.style.display = "block";
+        appChangerButton.innerHTML = "Open Tic Tac Toe";
+        pageHeading.innerHTML = "Calculator"
+    }
+    else{
+        TicTacApp.style.display = "block";
+        calculatorApp.style.display = "none";
+        appChangerButton.innerHTML = "Open Calculator";
+        pageHeading.innerHTML = "Tic Tac Toe";
+    }
+});
 
 
 tiles.forEach(function(tile){
@@ -56,6 +78,8 @@ const checkRowWin = function(){
             }
 
             document.getElementById("won").style.display = "block";
+            winningPlayer.innerHTML =  (curPlayer === player1) ? "Player 2" : "Player 1";
+            confetti.start();
             gameOver = true;
             return;
         }
@@ -70,6 +94,8 @@ const checkColumnWin = function(){
                 tile.style.backgroundColor = "green";
             }
             document.getElementById("won").style.display = "block";
+            winningPlayer.innerHTML =  (curPlayer === player1) ? "Player 2" : "Player 1";
+            confetti.start();
             gameOver = true;
             return;
         }
@@ -83,6 +109,8 @@ const checkDiagonalWin = function(){
             tile.style.backgroundColor = "green";
         }
         document.getElementById("won").style.display = "block";
+        winningPlayer.innerHTML =  (curPlayer === player1) ? "Player 2" : "Player 1";
+        confetti.start();
         gameOver = true;
         return;
     }
@@ -100,7 +128,8 @@ const checkAntiDiagonalWin = function(){
         tile.style.backgroundColor = "green";
         
         document.getElementById("won").style.display = "block";
-
+        winningPlayer.innerHTML =  (curPlayer === player1) ? "Player 2" : "Player 1";
+        confetti.start();
         gameOver = true;
         return; 
     }
@@ -110,20 +139,49 @@ const checkAntiDiagonalWin = function(){
 
 const ESCkeyWonClose = (event) =>{
     event.key === 'Escape' ? document.getElementById("won").style.display = "none" : "" ;
+    resetAll();
 }
+
 document.addEventListener('keydown', ESCkeyWonClose);
 
 HideWon.addEventListener("click", function(){
     document.getElementById("won").style.display = "none";
+    resetAll();
 });
 
-playAgain.addEventListener('click', function(){
+const resetAll = function(){
     curPlayer = player1;
     gameOver = false;
     board = [['', '', ''], ['', '', ''], ['', '', '']];
     tiles.forEach(function(tile){
         tile.innerText = '';
-        tile.style.backgroundColor = "red";
+        tile.style.backgroundColor = "#DA1212";
     });
+    confetti.stop();
     document.getElementById("won").style.display = "none";
+}
+
+playAgain.addEventListener('click', resetAll);
+
+
+let calculatorResult = "";
+calculatorButtons.forEach(function(button){
+    button.addEventListener('click', function(event){
+        if(event.target.innerHTML == 'C'){
+            calculatorResult = "";
+            calculatorInput.value = "";
+        }
+        else if(event.target.innerHTML == '='){
+            calculatorResult = eval(calculatorResult);
+            calculatorInput.value = calculatorResult;
+        }
+        else{
+            calculatorResult = calculatorResult + event.target.innerHTML;
+            calculatorInput.value = calculatorResult;
+        }
+        
+    });
 });
+
+
+
