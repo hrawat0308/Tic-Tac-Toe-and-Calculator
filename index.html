@@ -1,10 +1,52 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Tic Tac Toe and calculator App</title>
-        <script src="./script.js" ></script>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        
+        <section id="containter">
+            
+            <header>
+
+
+            </header>
+
+            <div class="game-heading">
+                <h1>Tic Tac Toe</h1>
+            </div>
+            
+            <section id="board">
+                <div id="board-tiles">
+                    <div class="tile" id="0-0"></div>
+                    <div class="tile" id="0-1"></div>
+                    <div class="tile" id="0-2"></div>
+                    <div class="tile" id="1-0"></div>
+                    <div class="tile" id="1-1"></div>
+                    <div class="tile" id="1-2"></div>
+                    <div class="tile" id="2-0"></div>
+                    <div class="tile" id="2-1"></div>
+                    <div class="tile" id="2-2"></div>
+                </div>
+            </section>
+
+            <div class="overlay" id="won">
+                <button class="close-won">&times;</button>
+                <div class="overlay-content">
+                    <p>Player X Won the Game</p>
+                    <Button id="playAgain">Play Again</Button>
+                </div>
+            </div>
+            
+            <footer>
+
+
+            </footer>
+        </section>
+    
+    <script src="./script.js" ></script>
     </body>
 </html>

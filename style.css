@@ -1,0 +1,90 @@
+body{
+    margin: 0;
+    background-color: #f3f3f3;
+    font-family: 'Poppins', sans-serif;
+    color: #444;
+    text-align: center;
+}
+
+#board{
+    width: 500px;
+    height: 500px;
+    background-color: yellow;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#board-tiles{
+    width: 450px;
+    height: 450px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4px;
+}
+
+.tile{
+    display: flex;
+    height: 147px;
+    width: 147px;
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    font-weight: bolder;
+    
+}
+
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.8);
+  }
+
+  .overlay-content {
+    position: relative;
+    top: 15%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+ 
+
+  .overlay p {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 50px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .overlay .close-won{
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    background-color: rgb(0,0,0);
+    color: #818181;
+    border: none;
+  }
+
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .close-won {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+    }
+  }
+
