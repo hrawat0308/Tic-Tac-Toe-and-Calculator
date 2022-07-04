@@ -10,6 +10,7 @@ const calculatorApp = document.getElementById("calculator-app");
 const pageHeading = document.querySelector(".heading-name");
 const calculatorButtons = document.querySelectorAll(".calculator-button");
 const calculatorInput = document.querySelector(".calculator-input");
+const congratulations = document.querySelector('.overlay-content').firstElementChild;
 
 let player1 = "O";
 let player2 = "X";
@@ -62,10 +63,12 @@ tiles.forEach(function(tile){
 
 
 const checkWinner = function(){
+    checkDraw();
     checkRowWin();
     checkColumnWin();
     checkDiagonalWin();
     checkAntiDiagonalWin();
+    
 }
 
 
@@ -77,8 +80,9 @@ const checkRowWin = function(){
                 tile.style.backgroundColor = "green";    
             }
 
+            congratulations.style.display = "block";
             document.getElementById("won").style.display = "block";
-            winningPlayer.innerHTML =  (curPlayer === player1) ? "Player 2" : "Player 1";
+            winningPlayer.innerHTML =  (curPlayer === player1) ? "Player 2 Won the Game" : "Player 1 Won the Game";
             confetti.start();
             gameOver = true;
             return;
@@ -93,8 +97,9 @@ const checkColumnWin = function(){
                 let tile = document.getElementById(i + "-" + col);
                 tile.style.backgroundColor = "green";
             }
+            congratulations.style.display = "block";
             document.getElementById("won").style.display = "block";
-            winningPlayer.innerHTML =  (curPlayer === player1) ? "Player 2" : "Player 1";
+            winningPlayer.innerHTML =  (curPlayer === player1) ? "Player 2 Won the Game" : "Player 1 Won the Game";
             confetti.start();
             gameOver = true;
             return;
@@ -108,8 +113,9 @@ const checkDiagonalWin = function(){
             let tile = document.getElementById(i + "-" + i);
             tile.style.backgroundColor = "green";
         }
+        congratulations.style.display = "block";
         document.getElementById("won").style.display = "block";
-        winningPlayer.innerHTML =  (curPlayer === player1) ? "Player 2" : "Player 1";
+        winningPlayer.innerHTML =  (curPlayer === player1) ? "Player 2 Won the Game" : "Player 1 Won the Game";
         confetti.start();
         gameOver = true;
         return;
@@ -127,12 +133,27 @@ const checkAntiDiagonalWin = function(){
         tile = document.getElementById(2 + "-" + 0);
         tile.style.backgroundColor = "green";
         
+        congratulations.style.display = "block";
         document.getElementById("won").style.display = "block";
-        winningPlayer.innerHTML =  (curPlayer === player1) ? "Player 2" : "Player 1";
+        winningPlayer.innerHTML =  (curPlayer === player1) ? "Player 2 Won the Game" : "Player 1 Won the Game";
         confetti.start();
         gameOver = true;
         return; 
     }
+}
+
+const checkDraw = function(){
+    for(let i = 0; i < 3; i++){
+        for(let j = 0; j<3 ; j++){
+            if(board[i][j] == '') return;
+        }
+    }
+
+    document.getElementById("won").style.display = "block";
+    winningPlayer.innerHTML = "It's a Draw !!";
+    congratulations.style.display = "none";
+    gameOver = true;
+    return;
 }
 
 
